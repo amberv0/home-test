@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "license": "MIT",
   "private": true,
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "lint": "eslint .",
     "test": "jest --coverage",
