@@ -51,6 +51,13 @@ const cases = [
     output: { name: "Doliprane", expiresIn: -1, benefit: 0 },
   },
   {
+    scope: "normal drug",
+    testName:
+      "follows the general rules even for a name inherited from Object.prototype",
+    input: { name: "toString", expiresIn: 10, benefit: 20 },
+    output: { name: "toString", expiresIn: 9, benefit: 19 },
+  },
+  {
     scope: "Herbal Tea",
     testName: "increases benefit by 1 as it gets older",
     input: { name: "Herbal Tea", expiresIn: 10, benefit: 5 },
