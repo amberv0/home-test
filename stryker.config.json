@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "plugins": ["@stryker-mutator/jest-runner"],
+  "testRunner": "jest",
+  "coverageAnalysis": "perTest",
+  "mutate": [
+    "**/*.js",
+    "!index.js",
+    "!**/*.test.js",
+    "!coverage/**"
+  ],
+  "reporters": ["clear-text", "progress", "html"],
+  "thresholds": { "high": 100, "low": 100, "break": 100 }
+}
