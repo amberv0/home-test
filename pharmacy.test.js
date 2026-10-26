@@ -190,6 +190,42 @@ const cases = [
     input: { name: "Magic Pill", expiresIn: -1, benefit: 40 },
     output: { name: "Magic Pill", expiresIn: -1, benefit: 40 },
   },
+  {
+    scope: "Dafalgan",
+    testName: "degrades benefit by 2, twice as fast as a normal drug",
+    input: { name: "Dafalgan", expiresIn: 10, benefit: 20 },
+    output: { name: "Dafalgan", expiresIn: 9, benefit: 18 },
+  },
+  {
+    scope: "Dafalgan",
+    testName: "still degrades by 2 on its last day",
+    input: { name: "Dafalgan", expiresIn: 1, benefit: 20 },
+    output: { name: "Dafalgan", expiresIn: 0, benefit: 18 },
+  },
+  {
+    scope: "Dafalgan",
+    testName: "degrades benefit by 4 once expired",
+    input: { name: "Dafalgan", expiresIn: 0, benefit: 20 },
+    output: { name: "Dafalgan", expiresIn: -1, benefit: 16 },
+  },
+  {
+    scope: "Dafalgan",
+    testName: "keeps degrading by 4 long after expiration",
+    input: { name: "Dafalgan", expiresIn: -500, benefit: 20 },
+    output: { name: "Dafalgan", expiresIn: -501, benefit: 16 },
+  },
+  {
+    scope: "Dafalgan",
+    testName: "never lowers benefit below 0",
+    input: { name: "Dafalgan", expiresIn: 10, benefit: 1 },
+    output: { name: "Dafalgan", expiresIn: 9, benefit: 0 },
+  },
+  {
+    scope: "Dafalgan",
+    testName: "never lowers benefit below 0 after expiration",
+    input: { name: "Dafalgan", expiresIn: 0, benefit: 3 },
+    output: { name: "Dafalgan", expiresIn: -1, benefit: 0 },
+  },
 ];
 
 describe("Pharmacy", () => {

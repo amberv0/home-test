@@ -29,4 +29,7 @@ export const DRUG_RULE_OVERRIDES = {
     aging: { decreaseExpiresInBy: 0 },
     benefitSchedule: [{ whenExpiresInAtMost: Infinity, benefitChange: 0 }],
   },
+  Dafalgan: {
+    benefitSchedule: [{ whenExpiresInAtMost: Infinity, benefitChange: -2 }],
+  },
 };
